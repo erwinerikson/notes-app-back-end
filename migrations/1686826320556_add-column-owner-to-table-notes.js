@@ -1,15 +1,14 @@
 /* eslint-disable camelcase */
+/* eslint linebreak-style: ["error", "unix"] */
 
-exports.shorthands = undefined;
-
-exports.up = pgm => {
-    pgm.addColumn('notes', {
-        owner: {
-            type: 'VARCHAR(50)',
-        },
-    });
+exports.up = (pgm) => {
+  pgm.addColumn('notes', {
+    owner: {
+      type: 'VARCHAR(50)',
+    },
+  });
 };
 
-exports.down = pgm => {
-    pgm.dropColumn('notes', 'owner');
+exports.down = (pgm) => {
+  pgm.dropColumn('notes', 'owner');
 };

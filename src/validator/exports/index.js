@@ -1,11 +1,11 @@
 /* eslint linebreak-style: ["error", "windows"] */
 
+const ExportNotesPayloadSchema = require('./schema');
 const InvariantError = require('../../exceptions/InvariantError');
-const { UserPayloadSchema } = require('./schema');
 
-const UsersValidator = {
-  validateUserPayload: (payload) => {
-    const validationResult = UserPayloadSchema.validate(payload);
+const ExportsValidator = {
+  validateExportNotesPayload: (payload) => {
+    const validationResult = ExportNotesPayloadSchema.validate(payload);
 
     if (validationResult.error) {
       throw new InvariantError(validationResult.error.message);
@@ -13,4 +13,4 @@ const UsersValidator = {
   },
 };
 
-module.exports = UsersValidator;
+module.exports = ExportsValidator;

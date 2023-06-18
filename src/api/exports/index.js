@@ -1,13 +1,13 @@
 /* eslint linebreak-style: ["error", "windows"] */
 
-const NotesHandler = require('./handler');
+const ExportsHandler = require('./handler');
 const routes = require('./routes');
 
 module.exports = {
-  name: 'notes',
+  name: 'exports',
   version: '1.0.0',
   register: async (server, { service, validator }) => {
-    const notesHandler = new NotesHandler(service, validator);
-    server.route(routes(notesHandler));
+    const exportsHandler = new ExportsHandler(service, validator);
+    server.route(routes(exportsHandler));
   },
 };
