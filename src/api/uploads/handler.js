@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable no-underscore-dangle */
 /* eslint linebreak-style: ["error", "windows"] */
 
@@ -16,12 +17,13 @@ class UploadsHandler {
       const { data } = request.payload;
       this._validator.validateImageHeaders(data.hapi.headers);
 
-      const filename = await this._service.writeFile(data, data.hapi);
+      const fileLocation = await this._service.writeFile(data, data.hapi);
 
       const response = h.response({
         status: 'success',
         data: {
-          fileLocation: `http://${process.env.HOST}:${process.env.PORT}/upload/images/${filename}`,
+          //fileLocation: `http://${process.env.HOST}:${process.env.PORT}/upload/images/${filename}`,
+          fileLocation,
         },
       });
       response.code(201);
